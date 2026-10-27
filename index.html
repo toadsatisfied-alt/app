@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Задачи">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+<title>Задачи</title>
+</head>
+<body>
+<header>
+  <div class="head-row">
+    <h1 id="title">Все</h1>
+    <button id="bell" class="icon-btn" aria-label="Включить уведомления" hidden>🔔</button>
+  </div>
+  <nav id="tabs" aria-label="Списки"></nav>
+</header>
+
+<main>
+  <ul id="tasks"></ul>
+  <p id="empty" hidden>Здесь пока пусто</p>
+  <button id="toggle-done" class="link-btn" hidden></button>
+  <ul id="done-tasks" hidden></ul>
+</main>
+
+<form id="quick" autocomplete="off">
+  <input id="quick-text" type="text" placeholder="Новая задача" enterkeyhint="done" aria-label="Новая задача">
+  <button type="button" id="quick-more" class="icon-btn" aria-label="Подробнее">⋯</button>
+  <button type="submit" id="quick-add" aria-label="Добавить">+</button>
+</form>
+
+<dialog id="sheet">
+  <form method="dialog" id="sheet-form">
+    <input id="f-text" type="text" placeholder="Название" required>
+    <label>Срок <input id="f-due" type="datetime-local"></label>
+    <label>Список <select id="f-list"></select></label>
+    <label>Приоритет
+      <select id="f-prio">
+        <option value="0">Обычный</option>
+        <option value="1">Важный</option>
+        <option value="2">Срочный</option>
+      </select>
+    </label>
+    <div class="sheet-actions">
+      <button type="button" id="f-delete" class="danger">Удалить</button>
+      <button type="button" id="f-cancel">Отмена</button>
+      <button type="submit" class="primary">Сохранить</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
