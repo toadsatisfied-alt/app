@@ -1,0 +1,17 @@
+name = "todo-sync"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[triggers]
+crons = ["* * * * *"]
+
+[vars]
+VAPID_SUBJECT = "mailto:toadsatisfied@gmail.com"
+# Публичный VAPID-ключ: вставьте результат `npm run vapid`
+VAPID_PUBLIC_KEY = ""
+
+[[d1_databases]]
+binding = "DB"
+database_name = "todo"
+# Вставьте id после `npx wrangler d1 create todo`
+database_id = "REPLACE_ME"
